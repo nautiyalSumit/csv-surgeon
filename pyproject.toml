@@ -1,19 +1,17 @@
-[project]
+[tool.poetry]
 name = "csv-surgeon"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Sumit Nautiyal",email = "nautiyal.sumit@protonmail.com"}
-]
+description = "A simple CLI tool to work with CSV files"
+authors = [Sumit Nautiayl <nautiyal.sumit@protonmail.com>"]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-]
+packages = [{ include = "csv_surgeon", from = "src" }]
 
-[tool.poetry]
-packages = [{include = "csv_surgeon", from = "src"}]
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
 
+[tool.poetry.scripts]
+csv-surgeon = "csv_surgeon.cli:main"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
