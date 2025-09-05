@@ -65,16 +65,13 @@ def main():
     subparsers = parser.add_subparsers(dest="command")
 
     # filter
-    parser_filter = subparsers.add_parser(
-        "filter", help="Filter rows by column value"
-    )
+    parser_filter = subparsers.add_parser("filter", help="Filter rows by column value")
     parser_filter.add_argument("file", help="CSV file")
     parser_filter.add_argument("column", help="Column name")
     parser_filter.add_argument("value", help="Value to match")
     parser_filter.add_argument("output", help="Output CSV file")
     parser_filter.set_defaults(
-        func=lambda args: filter_csv(
-            args.file, args.output, args.column, args.value)
+        func=lambda args: filter_csv(args.file, args.output, args.column, args.value)
     )
 
     # merge
@@ -89,8 +86,7 @@ def main():
     )
 
     # split
-    split_parser = subparsers.add_parser(
-        "split", help="Split a CSV into parts")
+    split_parser = subparsers.add_parser("split", help="Split a CSV into parts")
     split_parser.add_argument("file")
     split_parser.add_argument("-n", "--rows", type=int, required=True)
     split_parser.add_argument("-p", "--prefix", default="chunk")
