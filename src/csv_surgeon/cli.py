@@ -27,21 +27,20 @@ def split_csv(file: str, rows: int, prefix: str) -> None:
                 writer.writerows(chunk)
 
 
-def merge_csv(file1: str, file2: str, output: str) -> None:
-    """Merge two CSV files (keeping header only once)."""
-    with open(output, "w", newline="", encoding="utf-8") as out:
+def merge_csv(files, output):
+    with open(output, "w", newline="") as out:
         writer = csv.writer(out)
-        for i, f in enumerate([file1, file2]):
-            with open(f, newline="", encoding="utf-8") as inp:
+        for i, f in enumerate(files):
+            with open(f, newline="") as inp:
                 reader = csv.reader(inp)
                 header = next(reader)
                 if i == 0:
-                    writer.writerow(header)  # only first header
+                    writer.writerow(header)  # only write header once
                 for row in reader:
                     writer.writerow(row)
 
 
-def filter_csv(input_file: str, output_file: str, column: str, value: str) -> None:
+def filter_csv(input_file: str, column: str, value: str, output_file: str) -> None:
     """Filter rows where column == value and write to output CSV."""
     with open(input_file, newline="", encoding="utf-8") as infile:
         reader = csv.DictReader(infile)
