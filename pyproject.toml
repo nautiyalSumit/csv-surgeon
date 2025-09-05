@@ -5,6 +5,8 @@ description = "A simple CLI tool to work with CSV files"
 authors = ["Sumit Nautiayl <nautiyal.sumit@protonmail.com>"]
 readme = "README.md"
 packages = [{ include = "csv_surgeon", from = "src" }]
+license = "MIT"
+
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
@@ -13,8 +15,10 @@ python = ">=3.9,<4.0"
 csv-surgeon = "csv_surgeon.cli:main"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.4.2"
-flake8 = "^7.3.0"
+pytest = "^8.0.0"
+ruff = "^0.6.0"
+black = "^24.0"
+mypy = "^1.10.0"
 
 [build-system]
 requires = ["poetry-core"]
