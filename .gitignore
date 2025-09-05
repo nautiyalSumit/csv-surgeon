@@ -1,0 +1,9 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Test data
+*.csv
+
+# Pytest cache
+.pytest_cache/
